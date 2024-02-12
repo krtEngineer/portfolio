@@ -34,7 +34,11 @@ const Hero = () => {
             </a>
             <br />
             Get resume {"         "}{" "}
-            <a id="logo" href="" target="_blank">
+            <a
+              id="logo"
+              href="https://drive.google.com/file/d/1Pvdj2JL_-kDObJ69TSDtnUQkmiPI-_rQ/view?usp=sharing"
+              target="_blank"
+            >
               <GoDownload />
             </a>
             <br />
