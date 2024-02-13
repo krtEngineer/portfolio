@@ -46,7 +46,7 @@ html {
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--white);
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
@@ -370,6 +370,10 @@ PROJECTS
   z-index: 0;
 }
 
+.project-img-container-1 {
+  position: relative;
+}
+
 .img-bcg {
   position: absolute;
   background: var(--grey-300);
@@ -390,6 +394,14 @@ PROJECTS
   border-top-left-radius: var(--borderRadius);
 }
 
+.project .project-img {
+  height: 15rem;
+  width: 100%;
+  margin: 0 auto;
+  border-top-right-radius: var(--borderRadius);
+  border-top-left-radius: var(--borderRadius);
+}
+
 .project h5 {
   text-align: center;
   padding: 1rem 0;
@@ -403,6 +415,20 @@ PROJECTS
 
 #title-completed {
   background: #d1fae5;
+}
+
+.footer {
+  width: 100vw;
+  height: 4rem;
+  margin: 0 auto;
+  padding-top: 20px;
+  background: var(--white);
+}
+
+.footer p {
+  text-align: center;
+  display: block;
+  color: var(--grey-700);
 }
 
 @media (min-width: 768px) {
