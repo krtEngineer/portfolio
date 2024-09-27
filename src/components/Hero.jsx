@@ -33,8 +33,7 @@ const Hero = () => {
           <h1>Portfolio</h1>
           <p>
             Namaste &#128591; <br />I am{" "}
-            <span id="name">Kushagra Raj Tiwari</span> from Bharat 🇮🇳 <br />I am
-            software engineer at Deutsche Bank.
+            <span id="name">Kushagra Raj Tiwari</span> from Bharat 🇮🇳 <br />I work as {import.meta.env.VITE_CURRENT_COMPANY_EMP_TITLE} at <a id="logo" href={import.meta.env.VITE_CURRENT_COMPANY_WEBSITE} target="_blank">{import.meta.env.VITE_CURRENT_COMPANY_NAME}</a>.
             <br />
             You can connect with me on <br />
             {socialLinks.length > 0 && (
