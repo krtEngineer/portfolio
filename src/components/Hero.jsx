@@ -44,7 +44,7 @@ const Hero = () => {
             Get resume {"         "}{" "}
             <a
               id="logo"
-              href="https://drive.google.com/file/d/1Pvdj2JL_-kDObJ69TSDtnUQkmiPI-_rQ/view?usp=sharing"
+              href={import.meta.env.VITE_RESUME_LINK}
               target="_blank"
             >
               <GoDownload />
