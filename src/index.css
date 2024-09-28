@@ -446,3 +446,18 @@ PROJECTS
     border-radius: 50%;
   }
 }
+
+/* 
+============= 
+Greetings 
+=============
+*/
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  /* border: 1px solid #ddd; */
+}

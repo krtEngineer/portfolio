@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import heroImg_2 from "../assets/hero_wbcg.png";
-import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 import { GoDownload } from "react-icons/go";
 import { fetchItems } from "../fetchItems";
 import { socialLinksContentType } from "../../constant";
 import SocialLinks from "./SocialLinks";
+import GreetingSlider from "./GreetingSlider";
 
 const Hero = () => {
   const [socialLinks, setSocialLinks] = useState([]);
@@ -30,10 +30,18 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-center">
         <div className="hero-title">
-          <h1>Portfolio</h1>
+          <GreetingSlider></GreetingSlider>
           <p>
-            Namaste &#128591; <br />I am{" "}
-            <span id="name">Kushagra Raj Tiwari</span> from Bharat 🇮🇳 <br />I work as {import.meta.env.VITE_CURRENT_COMPANY_EMP_TITLE} at <a id="logo" href={import.meta.env.VITE_CURRENT_COMPANY_WEBSITE} target="_blank">{import.meta.env.VITE_CURRENT_COMPANY_NAME}</a>.
+            <br />I am <span id="name">Kushagra Raj Tiwari</span> from Bharat 🇮🇳{" "}
+            <br />I work as {import.meta.env.VITE_CURRENT_COMPANY_EMP_TITLE} at{" "}
+            <a
+              id="logo"
+              href={import.meta.env.VITE_CURRENT_COMPANY_WEBSITE}
+              target="_blank"
+            >
+              {import.meta.env.VITE_CURRENT_COMPANY_NAME}
+            </a>
+            .
             <br />
             You can connect with me on <br />
             {socialLinks.length > 0 && (
