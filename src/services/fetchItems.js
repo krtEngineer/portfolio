@@ -7,7 +7,7 @@ import {
   isContentTypeProject,
   isContentTypeSocialLinks,
   isContentTypeValid,
-} from "./utility";
+} from "../services/utility";
 
 const client = createClient({
   accessToken: import.meta.env.VITE_ACCESS_TOKEN,

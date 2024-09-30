@@ -285,7 +285,7 @@ body {
   background: var(--grey-200);
 }
 .hero {
-  min-height: 40vh;
+  min-height: 30vh;
   background: var(--white);
   display: flex;
   align-items: center;
@@ -460,4 +460,14 @@ Greetings
   margin: auto;
   overflow: hidden;
   /* border: 1px solid #ddd; */
+}
+
+/* 
+============= 
+Blogs
+=============
+*/
+
+#blog-date{
+  background: var(--primary-100);
 }

@@ -1,9 +1,9 @@
-import { portfolioContentType } from "../../constant";
-import { fetchItems } from "../fetchItems";
+import { fetchItems } from "../services/fetchItems";
 import Message from "../components/Message";
 import ProjectCategory from "../components/ProjectCategory";
 import Title from "../components/Title";
 import { useLoaderData } from "react-router-dom";
+import { portfolioContentType } from "../services/utility";
 
 export const loader = async () => {
   const {

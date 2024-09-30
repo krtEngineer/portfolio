@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import heroImg_2 from "../assets/hero_wbcg.png";
 import { GoDownload } from "react-icons/go";
-import { fetchItems } from "../fetchItems";
-import { socialLinksContentType } from "../../constant";
+import { fetchItems } from "../services/fetchItems";
 import SocialLinks from "./SocialLinks";
 import GreetingSlider from "./GreetingSlider";
+import { socialLinksContentType } from "../services/utility";
 
 const Hero = () => {
   const [socialLinks, setSocialLinks] = useState([]);
@@ -57,7 +57,7 @@ const Hero = () => {
               <GoDownload />
             </a>
             <br />
-            Here are some of my projects.
+            Here are some of my works.
           </p>
         </div>
         <div className="img-container">

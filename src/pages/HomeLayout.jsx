@@ -9,7 +9,7 @@ const HomeLayout = () => {
     <main>
       <Hero />
       {isPageLoading ? <div className="loading"></div> : <Outlet />}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };

@@ -1,8 +1,6 @@
-import {
-  portfolioContentType,
-  projectContentTypes,
-  socialLinksContentType,
-} from "../constant";
+export const portfolioContentType = import.meta.env.VITE_CT_PORTFOLIO;
+export const projectContentTypes = import.meta.env.VITE_CT_PROJECTS;
+export const socialLinksContentType = import.meta.env.VITE_CT_SOCIAL_LINKS;
 
 export const getProjectCategories = (items) => {
   const projectCategories = items.map((item) => {
@@ -65,4 +63,25 @@ export const isContentTypeValid = (contentType) => {
     isContentTypeProject(contentType) ||
     isContentTypeSocialLinks(contentType)
   );
+};
+
+export const getSplittedDate = (date) => {
+  return date.split("T")[0];
+};
+
+export const getTruncatedString = (str, num) => {
+  if (str.length > num) {
+    return str.slice(0, num) + "...";
+  } else {
+    return str;
+  }
+};
+
+export const formatDate = (date) => {
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  day = day < 10 ? "0" + day : day;
+  month = month < 10 ? "0" + month : month;
+  return `${day}/${month}/${year}`;
 };

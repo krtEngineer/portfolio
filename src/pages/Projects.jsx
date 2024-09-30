@@ -1,7 +1,7 @@
-import { fetchItems } from "../fetchItems";
 import Project from "../components/Project";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Title from "../components/Title";
+import { fetchItems } from "../services/fetchItems";
 
 export const loader = async ({ params }) => {
   const { category: contentType } = params;
@@ -10,11 +10,6 @@ export const loader = async ({ params }) => {
 };
 
 const Projects = () => {
-  // const navigation = useNavigation();
-  // const isPageLoading = navigation.state === "loading";
-  // if (isPageLoading) {
-  //   return <div className="loading"></div>;
-  // }
   const { loading, error, projects, contentType } = useLoaderData();
 
   if (loading) {
