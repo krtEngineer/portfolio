@@ -282,11 +282,11 @@ PROJECT CSS
 */
 
 body {
-  background: var(--grey-200);
+  background: var(--white);
 }
 .hero {
-  min-height: 30vh;
-  background: var(--white);
+  min-height: 80vh;
+  /* background: var(--white); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,4 +470,35 @@ Blogs
 
 #blog-date{
   background: var(--primary-100);
+}
+
+/* 
+============= 
+Works
+=============
+*/
+
+.works {
+  padding: 5rem 0;
+  min-height: 20vh;
+}
+
+.works-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-top: 1px;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .works-center {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .works-center {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

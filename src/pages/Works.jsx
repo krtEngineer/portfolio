@@ -20,9 +20,8 @@ const Works = () => {
   }
 
   return (
-    <section className="projects">
-      <Title title={"My Works"} />
-      <div className="projects-center">
+    <section className="works">
+      <div className="works-center">
         {works.map((work) => {
           return <Work key={work.id} work={work} />;
         })}

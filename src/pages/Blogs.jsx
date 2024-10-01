@@ -2,6 +2,7 @@ import { fetchBlogs } from "../services/getBlogs";
 import Blog from "../components/Blog";
 import { useLoaderData } from "react-router-dom";
 import Title from "../components/Title";
+import Message from "../components/Message";
 
 export const loader = async ({}) => {
   const contentType = "Blogs";

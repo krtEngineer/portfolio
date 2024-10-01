@@ -2,6 +2,7 @@ import Project from "../components/Project";
 import { useLoaderData } from "react-router-dom";
 import Title from "../components/Title";
 import { fetchItems } from "../services/fetchItems";
+import Message from "../components/Message";
 
 export const loader = async ({ params }) => {
   const { category: contentType } = params;

@@ -31,7 +31,13 @@ export const fetchBlogs = async () => {
     error: null,
   };
   try {
-    response.items = await getBlogs();
+    let locallyStoredBlogs = localStorage.getItem("blogs");
+    if (locallyStoredBlogs) {
+      response.items = JSON.parse(locallyStoredBlogs);
+    } else {
+      response.items = await getBlogs();
+      localStorage.setItem("blogs", JSON.stringify(response.items));
+    }
     response.loading = false;
   } catch (error) {
     response.items = [];
