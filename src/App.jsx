@@ -39,6 +39,18 @@ const router = createBrowserRouter([
         loader: blogsLoader,
         errorElement: <Message message={"Error in loading blogs."} />,
       },
+      {
+        path: "tils",
+        element: <Hero />,
+        loader: blogsLoader,
+        errorElement: <Message message={"Error in loading blogs."} />,
+      },
+      {
+        path: "books",
+        element: <Hero />,
+        loader: blogsLoader,
+        errorElement: <Message message={"Error in loading blogs."} />,
+      },
     ],
   },
 ]);

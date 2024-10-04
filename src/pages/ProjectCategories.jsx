@@ -27,7 +27,6 @@ const ProjectCategories = () => {
 
   return (
     <section className="projects">
-      <Title title={"Projects"} />
       <div className="projects-center">
         {projectCategories.map((category) => {
           return <ProjectCategory key={category.id} category={category} />;

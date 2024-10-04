@@ -22,7 +22,6 @@ const Projects = () => {
   }
   return (
     <section className="projects">
-      <Title title={localStorage.getItem(contentType)} />
       <div className="projects-center">
         {projects.map((project) => {
           return <Project key={project.id} project={project} />;

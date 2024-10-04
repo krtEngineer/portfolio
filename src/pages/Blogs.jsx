@@ -22,7 +22,6 @@ const Blogs = () => {
   }
   return (
     <section className="projects">
-      <Title title={contentType} />
       <div className="projects-center">
         {blogs.map((blog) => {
           return <Blog key={blog.id} blog={blog} />;

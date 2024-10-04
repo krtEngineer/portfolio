@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavItem = ({ navItem }) => {
   return (
-    <Link to={navItem.link} className="nav-item">
+    <NavLink
+      to={navItem.link}
+      className={({ isActive }) =>
+        isActive ? "nav-item active-tab" : "nav-item"
+      }
+    >
       {navItem.name}
-    </Link>
+    </NavLink>
   );
 };
 export default NavItem;

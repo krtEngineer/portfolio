@@ -10,7 +10,6 @@ const ProjectCategory = ({ category }) => {
       onClick={() => {
         localStorage.setItem(contentType, title);
       }}
-      target="_blank"
       className="project"
     >
       <div className="project-img-container">

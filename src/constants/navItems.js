@@ -20,10 +20,10 @@ export const navItems = [
   {
     id: 4,
     name: "TIL",
-    link: "/",
+    link: "/tils",
     active: true,
   },
-  { id: 5, name: "Books", link: "/", active: true },
+  { id: 5, name: "Books", link: "/books", active: true },
 
   {
     id: 6,

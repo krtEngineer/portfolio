@@ -4,7 +4,7 @@ const NavItems = ({ navItems }) => {
   return (
     <section className="nav-items">
       {navItems.map((navItem) => {
-        return <NavItem key={navItem.id} navItem={navItem} />;
+        return <NavItem key={navItem.id} navItem={navItem}></NavItem>;
       })}
     </section>
   );

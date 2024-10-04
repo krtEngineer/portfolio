@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { navItems } from "../constants/navItems";
 
