@@ -5,6 +5,8 @@ import { fetchItems } from "../services/fetchItems";
 import SocialLinks from "./SocialLinks";
 import GreetingSlider from "./GreetingSlider";
 import { socialLinksContentType } from "../services/utility";
+import Greeting from "./Greeting";
+import Contact from "./Contact";
 
 const Hero = () => {
   const [socialLinks, setSocialLinks] = useState([]);
@@ -32,8 +34,8 @@ const Hero = () => {
         <div className="hero-title">
           <GreetingSlider></GreetingSlider>
           <p>
-            <br />I am <span id="name">Kushagra Raj Tiwari</span> from Bharat 🇮🇳{" "}
-            <br />I work as {import.meta.env.VITE_CURRENT_COMPANY_EMP_TITLE} at{" "}
+            I am Kushagra, from Bharat 🇮🇳. I work as{" "}
+            {import.meta.env.VITE_CURRENT_COMPANY_EMP_TITLE} at{" "}
             <a
               id="logo"
               href={import.meta.env.VITE_CURRENT_COMPANY_WEBSITE}
@@ -41,27 +43,47 @@ const Hero = () => {
             >
               {import.meta.env.VITE_CURRENT_COMPANY_NAME}
             </a>
-            .
+            , where I specialize in backend engineering.
             <br />
-            You can connect with me on <br />
-            {socialLinks.length > 0 && (
-              <SocialLinks socialLinks={socialLinks} />
-            )}
             <br />
-            Get resume {"         "}{" "}
+            I focus on building robust marketing products for some of the
+            world's top brands. My role involves designing and optimizing
+            scalable solutions that empower businesses to make data-driven
+            decisions.
+            <br />
+            <br />
+            Beyond my professional work, I have a keen interest in distributed
+            systems, networks, databases, and security. I continuously explore
+            these areas to enhance my understanding and stay at the forefront of
+            technological advancements.
+            <br />
+            <br />
+          </p>
+          <p>
+            When I’m not with tech, I’m probably running, on a bike trip,
+            playing harmonium, or cooking in the kitchen.
+          </p>
+          <br />
+          <p>
+            If you are my potential employer, please feel free to review my{" "}
             <a
               id="logo"
               href={import.meta.env.VITE_RESUME_LINK}
               target="_blank"
             >
-              <GoDownload />
-            </a>
-            <br />
-            Here are some of my works.
+              resume
+            </a>{" "}
+            for a detailed overview of my skills and experiences.
           </p>
+          <div className="contact-small-screen">
+            <Contact socialLinks={socialLinks} />
+          </div>
         </div>
         <div className="img-container">
           <img src={heroImg_2} alt="image" />
+          <div className="big-small-screen">
+            <Contact socialLinks={socialLinks} />
+          </div>
         </div>
       </div>
     </section>

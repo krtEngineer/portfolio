@@ -51,7 +51,7 @@ html {
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
-  --max-width: 1120px;
+  --max-width: 1000px;
   --fixed-width: 600px;
   --view-width: 90vw;
   /* box shadow*/
@@ -284,20 +284,91 @@ PROJECT CSS
 body {
   background: var(--white);
 }
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+   /* temp */
+   /* border: 1px solid green */
+}
+
+/* 
+============= 
+NAVBAR
+=============
+*/
+
+.navbar{
+  margin-top: 4rem;
+  width: 70vw;
+  max-width: var(--max-width);
+  margin-bottom: 2rem;
+  /* temp */
+  /* border: 1px solid blue */
+}
+
+.name h2{
+  /* font-family: 'Georgia', serif;  */
+  font-size: 3em;
+  color: #2c3e50; 
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-items{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-row-gap: 10px;
+grid-column-gap: 4px;
+}
+
+.nav-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--primary-500);
+  padding: 0;
+  background: var(--grey-100);
+  /* temp */
+  /* border: 1px solid red */
+}
+
+/* 
+============= 
+HOME
+=============
+*/
+
 .hero {
-  min-height: 80vh;
+  min-height: 40vh;
   /* background: var(--white); */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem;
+  gap: 0px;
+  padding: 1rem;
+  /* temp */
+  /* border: 1px solid red  */
 }
 .img-container {
   display: none;
+  /* border: 1px solid blue */
 }
 .hero-center {
-  width: 90vw;
+  width: 70vw;
   max-width: var(--max-width);
+  padding: 0%;
+  /* tmep */
+  /* border: 1px solid black; */
+}
+.hero-title{
+  /* border: 1px solid green; */
 }
 .hero-title h1 {
   margin-bottom: 2rem;
@@ -319,21 +390,68 @@ body {
 }
 
 .hero-title p {
-  line-height: 2;
+  line-height: 1.5;
   max-width: 35em;
   color: var(--grey-600);
 }
+.contact-small-screen{
+  display: block;
+}
+
+.big-small-screen{
+  display: none;
+}
+
+#contact{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.social-links{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* tmep */
+  /* border: 1px solid blue */
+}
+
+
 @media (min-width: 992px) {
   .hero-center {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    place-items: center;
+    /* place-items: center; */
     gap: 4rem;
   }
-  .img-container {
-    display: block;
-  }
+  .nav-items{
+    max-width: 30vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 4px;
+     /* temp */
+  /* border: 1px solid blue */
+    }
+    .img-container{
+      display: block;
+      width: 20rem;
+    }
+    .img-container img {
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+      /* temp */
+      /* border: 1px solid blue */
+    }
+    .contact-small-screen{
+      display: none;
+    }
+    .big-small-screen{
+      display: block;
+    }
 }
+
+
 /* 
 ============= 
 PROJECTS 
@@ -440,11 +558,6 @@ PROJECTS
   .projects-center {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .img-container img {
-    width: 30rem;
-    height: 30rem;
-    border-radius: 50%;
-  }
 }
 
 /* 
@@ -460,6 +573,11 @@ Greetings
   margin: auto;
   overflow: hidden;
   /* border: 1px solid #ddd; */
+}
+
+.slide h1{
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 /* 
@@ -478,7 +596,7 @@ Works
 =============
 */
 
-.works {
+/* .works {
   padding: 5rem 0;
   min-height: 20vh;
 }
@@ -501,4 +619,4 @@ Works
   .works-center {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-}
+} */

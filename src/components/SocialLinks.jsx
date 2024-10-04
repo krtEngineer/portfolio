@@ -2,7 +2,7 @@ import SocialIcon from "./SocilaIcon";
 
 const SocialLinks = ({ socialLinks }) => {
   return (
-    <>
+    <div className="social-links">
       {socialLinks.map((socialLink) => {
         const { id, url, platform } = socialLink;
         return (
@@ -11,7 +11,7 @@ const SocialLinks = ({ socialLinks }) => {
           </a>
         );
       })}
-    </>
+    </div>
   );
 };
 export default SocialLinks;
