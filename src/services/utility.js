@@ -1,3 +1,5 @@
+import { description } from "../constants/descriptions";
+
 export const portfolioContentType = import.meta.env.VITE_CT_PORTFOLIO;
 export const projectContentTypes = import.meta.env.VITE_CT_PROJECTS;
 export const socialLinksContentType = import.meta.env.VITE_CT_SOCIAL_LINKS;
@@ -128,4 +130,8 @@ export const formatDate = (date) => {
   day = day < 10 ? "0" + day : day;
   month = month < 10 ? "0" + month : month;
   return `${day}/${month}/${year}`;
+};
+
+export const getDescription = (title) => {
+  return description[title];
 };

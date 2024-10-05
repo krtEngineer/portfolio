@@ -1,10 +1,12 @@
 import { fetchBlogs } from "../services/getBlogs";
 import Blog from "../components/Blog";
 import { useLoaderData } from "react-router-dom";
-import Title from "../components/Title";
+import Title from "../components/Description";
 import Message from "../components/Message";
 import { fetchItems } from "../services/fetchItems";
 import { useState } from "react";
+import Description from "../components/Description";
+import { getDescription } from "../services/utility";
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url);
@@ -33,6 +35,7 @@ const Blogs = () => {
 
   return (
     <section className="blogs">
+      <Description title={getDescription(contentType)}></Description>
       <div className="blogs-center">
         {blogs.slice(0, visibleBlogs).map((blog, index) => {
           return <Blog key={index} blog={blog} />;

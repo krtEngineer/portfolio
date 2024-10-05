@@ -1,9 +1,10 @@
 import { fetchItems } from "../services/fetchItems";
 import Message from "../components/Message";
 import ProjectCategory from "../components/ProjectCategory";
-import Title from "../components/Title";
+import Title from "../components/Description";
 import { useLoaderData } from "react-router-dom";
-import { portfolioContentType } from "../services/utility";
+import { getDescription, portfolioContentType } from "../services/utility";
+import Description from "../components/Description";
 
 export const loader = async () => {
   const {
@@ -27,6 +28,7 @@ const ProjectCategories = () => {
 
   return (
     <section className="projects">
+      <Description title={getDescription("projects")}></Description>
       <div className="projects-center">
         {projectCategories.map((category) => {
           return <ProjectCategory key={category.id} category={category} />;

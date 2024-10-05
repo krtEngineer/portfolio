@@ -1,9 +1,9 @@
-const Title = ({ title }) => {
+const Description = ({ title, url }) => {
   return (
     <div className="title">
-      <h2>{title}</h2>
+      <p>{title}</p>
       <div className="title-underline"></div>
     </div>
   );
 };
-export default Title;
+export default Description;

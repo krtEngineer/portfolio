@@ -1,6 +1,6 @@
 import Project from "../components/Project";
 import { useLoaderData } from "react-router-dom";
-import Title from "../components/Title";
+import Title from "../components/Description";
 import { fetchItems } from "../services/fetchItems";
 import Message from "../components/Message";
 

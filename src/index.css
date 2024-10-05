@@ -264,15 +264,17 @@ ul {
 /* title */
 
 .title {
-  text-align: center;
+  color: var(--grey-500);
+  font-size: 1rem;
 }
 
 .title-underline {
-  background: var(--primary-500);
-  height: 0.25rem;
-  width: 60vw;
+  background: var(--grey-500);
+  height: 1px;
+  width: 70vw;
   margin: 0 auto;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* 
@@ -473,13 +475,13 @@ PROJECTS
 */
 
 .projects {
-  padding: 5rem 0;
+  width: 70vw;
+  max-width: var(--max-width);
+  /* padding: 5rem 0; */
 }
 .projects-center {
-  width: 90vw;
-  max-width: var(--max-width);
   margin: 0 auto;
-  /* margin-top: 3rem; */
+  margin-top: 1rem;
   display: grid;
   gap: 2rem;
 }
