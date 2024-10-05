@@ -23,7 +23,7 @@ export const navItems = [
     link: "/tils",
     active: true,
   },
-  { id: 5, name: "Books", link: "/books", active: true },
+  { id: 5, name: "Bookshelf", link: "/bookshelf", active: true },
 
   {
     id: 6,

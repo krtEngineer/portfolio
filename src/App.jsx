@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         errorElement: <Message message={"Error in loading blogs."} />,
       },
       {
-        path: "books",
+        path: "bookshelf",
         element: <Hero />,
         loader: blogsLoader,
         errorElement: <Message message={"Error in loading blogs."} />,
