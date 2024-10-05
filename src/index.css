@@ -296,6 +296,10 @@ body {
    /* border: 1px solid green */
 }
 
+#content{
+  min-height: 70vh;
+}
+
 /* 
 ============= 
 NAVBAR

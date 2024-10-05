@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Made with ❤️ by Kushagra.</p>
+      <p>© {new Date().getFullYear()} Kushagra Raj Tiwari</p>
     </div>
   );
 };

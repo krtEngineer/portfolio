@@ -1,7 +1,8 @@
 import React from "react";
-import { Outlet, useLocation, useNavigation } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { navItems } from "../constants/navItems";
+import Footer from "../components/Footer";
 
 const Layout = () => {
   const navigation = useNavigation();
@@ -12,7 +13,10 @@ const Layout = () => {
         name={"Kushagra Raj Tiwari"}
         navItems={navItems.filter((navItem) => navItem.active)}
       />
-      <div>{isPageLoading ? <div className="loading"></div> : <Outlet />}</div>
+      <div id="content">
+        {isPageLoading ? <div className="loading"></div> : <Outlet />}
+      </div>
+      <Footer></Footer>
     </main>
   );
 };
