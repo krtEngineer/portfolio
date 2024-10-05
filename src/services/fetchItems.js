@@ -1,11 +1,15 @@
 import { createClient } from "contentful";
 import {
+  getBlogs,
   getProjectCategories,
   getProjects,
   getSocialLinks,
+  getTils,
+  isContentTypeBlogs,
   isContentTypePortfolio,
   isContentTypeProject,
   isContentTypeSocialLinks,
+  isContentTypeTils,
   isContentTypeValid,
 } from "../services/utility";
 
@@ -39,8 +43,12 @@ export const fetchItems = async (contentType) => {
       return getProjectCategories(items);
     } else if (isContentTypeProject(contentType)) {
       return getProjects(items);
-    } else if (isContentTypeSocialLinks) {
+    } else if (isContentTypeSocialLinks(contentType)) {
       return getSocialLinks(items);
+    } else if (isContentTypeBlogs(contentType)) {
+      return getBlogs(items);
+    } else if (isContentTypeTils(contentType)) {
+      return getTils(items);
     } else {
       return;
     }
@@ -50,7 +58,14 @@ export const fetchItems = async (contentType) => {
     if (!isContentTypeValid(contentType)) {
       throw new Error("Invalid content type.");
     }
-    await fetchResponse();
+    let items = localStorage.getItem(contentType);
+    if (items) {
+      response.items = JSON.parse(items);
+    } else {
+      await fetchResponse();
+      localStorage.setItem(contentType, JSON.stringify(response.items));
+    }
+    response.loading = false;
   } catch (error) {
     response.items = [];
     response.error = error.message;

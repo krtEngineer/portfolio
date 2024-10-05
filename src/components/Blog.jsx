@@ -1,13 +1,25 @@
 const Blog = ({ blog }) => {
-  const { id, creator, title, articleLink, date, categories, thumbnail } = blog;
+  const { id, title, url, date, tags } = blog;
   return (
-    <a key={id} href={articleLink} target="_blank" className="project">
-      <div className="project-img-container-1">
-        <img src={thumbnail} alt={title} className="project-img" />
+    <div className="blog">
+      <div className="blog-part-1">
+        <span>{date}</span>
+        <a key={id} href={url} target="_blank">
+          {title}
+        </a>
       </div>
-      <h5 id="title-completed">{title}</h5>
-      <h5 id="blog-date">{date}</h5>
-    </a>
+      <div className="blog-part-2">
+        <ul className="blog-tags">
+          {tags.map((tag, index) => {
+            return (
+              <li key={index} className="blog-tag">
+                {tag}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 };
 export default Blog;

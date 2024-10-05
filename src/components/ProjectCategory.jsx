@@ -7,9 +7,6 @@ const ProjectCategory = ({ category }) => {
     <Link
       key={id}
       to={status ? `/projects/${contentType}` : "/"}
-      onClick={() => {
-        localStorage.setItem(contentType, title);
-      }}
       className="project"
     >
       <div className="project-img-container">
