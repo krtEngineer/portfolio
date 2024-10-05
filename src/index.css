@@ -507,7 +507,7 @@ PROJECTS
 .project-img-container-1 {
   position: relative;
 }
-
+  
 .img-bcg {
   position: absolute;
   background: var(--grey-300);
@@ -541,6 +541,7 @@ PROJECTS
   padding: 1rem 0;
   color: var(--grey-800);
   font-size: 1.2rem;
+  height: 4rem;
 }
 
 #title-pending {

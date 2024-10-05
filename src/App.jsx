@@ -7,6 +7,7 @@ import ProjectCategories, {
 } from "./pages/ProjectCategories";
 import Layout from "./pages/Layout";
 import Hero from "./components/Hero";
+import Bookshelf, { loader as bookshelfLoader } from "./pages/Bookshelf";
 
 const router = createBrowserRouter([
   {
@@ -43,13 +44,13 @@ const router = createBrowserRouter([
         path: "tils",
         element: <Blogs />,
         loader: blogsLoader,
-        errorElement: <Message message={"Error in loading blogs."} />,
+        errorElement: <Message message={"Error in loading learnings."} />,
       },
       {
         path: "bookshelf",
-        element: <Hero />,
-        loader: blogsLoader,
-        errorElement: <Message message={"Error in loading blogs."} />,
+        element: <Bookshelf />,
+        loader: bookshelfLoader,
+        errorElement: <Message message={"Error in loading bookshelf."} />,
       },
     ],
   },

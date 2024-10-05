@@ -1,11 +1,13 @@
 import { createClient } from "contentful";
 import {
   getBlogs,
+  getBookshelf,
   getProjectCategories,
   getProjects,
   getSocialLinks,
   getTils,
   isContentTypeBlogs,
+  isContentTypeBookshelf,
   isContentTypePortfolio,
   isContentTypeProject,
   isContentTypeSocialLinks,
@@ -49,6 +51,8 @@ export const fetchItems = async (contentType) => {
       return getBlogs(items);
     } else if (isContentTypeTils(contentType)) {
       return getTils(items);
+    } else if (isContentTypeBookshelf(contentType)) {
+      return getBookshelf(items);
     } else {
       return;
     }

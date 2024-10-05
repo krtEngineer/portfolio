@@ -5,6 +5,7 @@ export const projectContentTypes = import.meta.env.VITE_CT_PROJECTS;
 export const socialLinksContentType = import.meta.env.VITE_CT_SOCIAL_LINKS;
 export const blogsContentType = import.meta.env.VITE_CT_BLOGS;
 export const tilsContentType = import.meta.env.VITE_CT_TILS;
+export const bookshelfContentType = import.meta.env.VITE_CT_BOOKSHELF;
 
 export const getProjectCategories = (items) => {
   const projectCategories = items.map((item) => {
@@ -69,6 +70,24 @@ export const getTils = (items) => {
   return tils.sort(compareDate);
 };
 
+export const getBookshelf = (items) => {
+  const bookshelf = items.map((item) => {
+    const { id, book_name, summary_url, image, status } = item.fields;
+    return {
+      id,
+      book_name,
+      summary_url: summary_url["content"][0]["content"][0]["value"],
+      image: image?.fields?.file?.url,
+      status,
+    };
+  });
+  return bookshelf.sort(compareBookId);
+};
+
+const compareBookId = (a, b) => {
+  return a.id - b.id;
+};
+
 export const compareDate = (a, b) => {
   return new Date(b.date) - new Date(a.date);
 };
@@ -101,13 +120,18 @@ export const isContentTypeTils = (contentType) => {
   return contentType === tilsContentType;
 };
 
+export const isContentTypeBookshelf = (contentType) => {
+  return contentType === bookshelfContentType;
+};
+
 export const isContentTypeValid = (contentType) => {
   return (
     isContentTypePortfolio(contentType) ||
     isContentTypeProject(contentType) ||
     isContentTypeSocialLinks(contentType) ||
     isContentTypeBlogs(contentType) ||
-    isContentTypeTils(contentType)
+    isContentTypeTils(contentType) ||
+    isContentTypeBookshelf(contentType)
   );
 };
 
