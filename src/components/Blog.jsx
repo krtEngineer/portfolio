@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
-const Blog = ({ blog }) => {
-  const { id, title, url, date, tags, is_markdown } = blog;
+const Blog = ({ blog, contentType }) => {
+  const { id, title, file_name, date, tags, is_markdown } = blog;
   return (
     <div className="blog">
       <div className="blog-part-1">
         <span>{date}</span>
         {is_markdown ? (
-          <Link to={`/article?url=${url}`}>{title}</Link>
+          <Link to={`/${contentType}/${file_name}`}>{title}</Link>
         ) : (
-          <a key={id} target="_blank" href={url}>
+          <a key={id} target="_blank" href={file_name}>
             {title}
           </a>
         )}

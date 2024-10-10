@@ -1,12 +1,16 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { fetchHtml } from "../services/utility";
+import { fetchMarkdown } from "../services/utility";
 import MarkdownRenderer from "./MarkdownRenderer";
+import { githubBaseUrl } from "../constants/githubBaseUrl";
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request, params }) => {
   const url = new URL(request.url);
-  const articleUrl = url.searchParams.get("url");
-  const { loading, error, item } = await fetchHtml(articleUrl);
+  const basePath = url.pathname.split("/")[1];
+  const baseUrl = githubBaseUrl[basePath];
+  const { title: articleTitle } = params;
+  const articleUrl = `${baseUrl}/${articleTitle}.md`;
+  const { loading, error, item } = await fetchMarkdown(articleUrl);
   return { loading, error, item };
 };
 

@@ -44,11 +44,11 @@ export const getSocialLinks = (items) => {
 
 export const getBlogs = (items) => {
   const blogs = items.map((item) => {
-    const { id, title, markdown_url, tags, date, is_markdown } = item.fields;
+    const { id, title, file_name, tags, date, is_markdown } = item.fields;
     return {
       id,
       title,
-      url: markdown_url["content"][0]["content"][0]["value"],
+      file_name: file_name["content"][0]["content"][0]["value"],
       tags,
       date,
       is_markdown,
@@ -59,11 +59,11 @@ export const getBlogs = (items) => {
 
 export const getTils = (items) => {
   const tils = items.map((item) => {
-    const { id, title, markdown_url, tags, date, is_markdown } = item.fields;
+    const { id, title, file_name, tags, date, is_markdown } = item.fields;
     return {
       id,
       title,
-      url: markdown_url["content"][0]["content"][0]["value"],
+      file_name: file_name["content"][0]["content"][0]["value"],
       tags,
       date,
       is_markdown,
@@ -162,7 +162,7 @@ export const getDescription = (title) => {
   return description[title];
 };
 
-export const fetchHtml = async (url) => {
+export const fetchMarkdown = async (url) => {
   try {
     const response = await fetch(url);
     let data = await response.text();

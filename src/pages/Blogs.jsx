@@ -38,7 +38,7 @@ const Blogs = () => {
       <Description title={getDescription(contentType)}></Description>
       <div className="blogs-center">
         {blogs.slice(0, visibleBlogs).map((blog, index) => {
-          return <Blog key={index} blog={blog} />;
+          return <Blog key={index} blog={blog} contentType={contentType} />;
         })}
       </div>
       {visibleBlogs < blogs.length && (

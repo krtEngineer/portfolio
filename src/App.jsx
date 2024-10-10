@@ -55,10 +55,16 @@ const App = () => {
           errorElement: <Message message={"Error in loading bookshelf."} />,
         },
         {
-          path: "article",
+          path: "tils/:title",
           element: <Article />,
           loader: articleLoader,
-          errorElement: <Message message={"Error in loading article."} />,
+          errorElement: <Message message={"Error in loading til content."} />,
+        },
+        {
+          path: "blogs/:title",
+          element: <Article />,
+          loader: articleLoader,
+          errorElement: <Message message={"Error in loading blog content."} />,
         },
       ],
     },
