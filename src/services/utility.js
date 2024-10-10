@@ -44,13 +44,14 @@ export const getSocialLinks = (items) => {
 
 export const getBlogs = (items) => {
   const blogs = items.map((item) => {
-    const { id, title, markdown_url, tags, date } = item.fields;
+    const { id, title, markdown_url, tags, date, is_markdown } = item.fields;
     return {
       id,
       title,
       url: markdown_url["content"][0]["content"][0]["value"],
       tags,
       date,
+      is_markdown,
     };
   });
   return blogs.sort(compareDate);
@@ -58,13 +59,14 @@ export const getBlogs = (items) => {
 
 export const getTils = (items) => {
   const tils = items.map((item) => {
-    const { id, title, markdown_url, tags, date } = item.fields;
+    const { id, title, markdown_url, tags, date, is_markdown } = item.fields;
     return {
       id,
       title,
       url: markdown_url["content"][0]["content"][0]["value"],
       tags,
       date,
+      is_markdown,
     };
   });
   return tils.sort(compareDate);
@@ -158,4 +160,23 @@ export const formatDate = (date) => {
 
 export const getDescription = (title) => {
   return description[title];
+};
+
+export const fetchHtml = async (url) => {
+  try {
+    const response = await fetch(url);
+    let data = await response.text();
+    return {
+      loading: false,
+      item: data,
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error fetching HTML:", error);
+    return {
+      loading: false,
+      item: null,
+      error: error,
+    };
+  }
 };
