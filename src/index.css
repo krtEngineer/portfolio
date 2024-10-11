@@ -767,11 +767,8 @@ Article Style
 .article img {
   max-width: var(--max-width);
   height: auto;
-  margin-left: 2.3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  /* temp */
-  border: 2px solid red
 }
 
 .article blockquote {

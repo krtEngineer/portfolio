@@ -26,8 +26,10 @@ const Article = () => {
   }
 
   return (
-    <div className="blogs article">
-      <MarkdownRenderer markdown={item}></MarkdownRenderer>
+    <div>
+      <div className="blogs article">
+        <MarkdownRenderer markdown={item}></MarkdownRenderer>
+      </div>
       <div className="title-underline"></div>
     </div>
   );
