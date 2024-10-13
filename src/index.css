@@ -765,10 +765,13 @@ Article Style
 
 
 .article img {
-  max-width: var(--max-width);
-  height: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width);
+  object-fit: cover;
+  border: 0.5px solid #2b303b;
 }
 
 .article blockquote {
