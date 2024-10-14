@@ -9,7 +9,7 @@ export const loader = async ({ request, params }) => {
   const basePath = url.pathname.split("/")[1];
   const baseUrl = githubBaseUrl[basePath];
   const { title: articleTitle } = params;
-  const articleUrl = `${baseUrl}/${articleTitle}.md`;
+  const articleUrl = `${baseUrl}/${encodeURIComponent(articleTitle)}.md`;
   const { loading, error, item } = await fetchMarkdown(articleUrl);
   return { loading, error, item };
 };
