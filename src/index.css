@@ -749,6 +749,7 @@ Article Style
 .article p{
   line-height: 1.5;
   color: var(--grey-600);
+  margin-bottom: 0.5rem;
 }
 
 .article pre {
@@ -764,7 +765,6 @@ Article Style
 .article pre code {
   line-height: 1.5;
 }
-
 
 .article img {
   margin-top: 1rem;
@@ -782,4 +782,24 @@ Article Style
   padding: 10px;
   margin: 20px 0;
   font-style: italic;
+}
+
+.article ol{
+    margin-left: 20px; 
+    color: var(--grey-600);
+}
+
+.article ol li ol{
+  color: var(--grey-600);
+  line-height: 1.7;
+}
+
+.article ol li ul{
+  color: var(--grey-600);
+  line-height: 1.7;
+}
+
+.article ul li ul{
+  margin-left: 20px; 
+  color: var(--grey-600);
 }
