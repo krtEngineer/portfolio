@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import {
   getBlogs,
   getBookshelf,
+  getLocalStorageKey,
   getProjectCategories,
   getProjects,
   getSocialLinks,
@@ -21,7 +22,7 @@ const client = createClient({
   environment: "master",
 });
 
-export const fetchItems = async (contentType) => {
+export const fetchItems = async (contentType, tag = null) => {
   let response = {
     loading: true,
     items: [],
@@ -29,7 +30,14 @@ export const fetchItems = async (contentType) => {
   };
   const fetchResponse = async () => {
     try {
-      const data = await client.getEntries({ content_type: contentType });
+      let searchRequest = { content_type: contentType };
+      if (
+        (isContentTypeBlogs(contentType) || isContentTypeTils(contentType)) &&
+        tag
+      ) {
+        searchRequest["fields.tags[in]"] = tag;
+      }
+      const data = await client.getEntries(searchRequest);
       const items = data.items;
       const parsedItems = getParsedItems(contentType, items);
       response.items = parsedItems;
@@ -62,12 +70,13 @@ export const fetchItems = async (contentType) => {
     if (!isContentTypeValid(contentType)) {
       throw new Error("Invalid content type.");
     }
-    let items = localStorage.getItem(contentType);
+    let localKey = getLocalStorageKey(contentType, tag);
+    let items = localStorage.getItem(localKey);
     if (items) {
       response.items = JSON.parse(items);
     } else {
       await fetchResponse();
-      localStorage.setItem(contentType, JSON.stringify(response.items));
+      localStorage.setItem(localKey, JSON.stringify(response.items));
     }
     response.loading = false;
   } catch (error) {

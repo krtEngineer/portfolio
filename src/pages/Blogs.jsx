@@ -1,4 +1,3 @@
-import { fetchBlogs } from "../services/getBlogs";
 import Blog from "../components/Blog";
 import { useLoaderData } from "react-router-dom";
 import Title from "../components/Description";
@@ -11,8 +10,9 @@ import { getDescription } from "../services/utility";
 export const loader = async ({ request }) => {
   const url = new URL(request.url);
   const pathname = url.pathname;
+  const tag = url.searchParams.get("tag");
   const contentType = pathname.split("/")[1];
-  const { loading, error, items: blogs } = await fetchItems(contentType);
+  const { loading, error, items: blogs } = await fetchItems(contentType, tag);
   return { loading, error, blogs, contentType };
 };
 

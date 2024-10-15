@@ -16,13 +16,18 @@ const Blog = ({ blog, contentType }) => {
       </div>
       <div className="blog-part-2">
         <ul className="blog-tags">
-          {tags.map((tag, index) => {
-            return (
-              <li key={index} className="blog-tag">
-                {tag}
-              </li>
-            );
-          })}
+          {tags.length > 0 &&
+            tags.map((tag, index) => {
+              return (
+                <Link
+                  key={index}
+                  to={{ pathname: `/${contentType}`, search: `?tag=${tag}` }}
+                  className="blog-tag"
+                >
+                  {tag}
+                </Link>
+              );
+            })}
         </ul>
       </div>
     </div>

@@ -180,3 +180,14 @@ export const fetchMarkdown = async (url) => {
     };
   }
 };
+
+export const getLocalStorageKey = (contentType, tag) => {
+  if (
+    (isContentTypeBlogs(contentType) || isContentTypeTils(contentType)) &&
+    tag
+  ) {
+    return `${contentType}&${tag}`;
+  } else {
+    return contentType;
+  }
+};
