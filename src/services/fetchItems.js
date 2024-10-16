@@ -37,14 +37,24 @@ export const fetchItems = async (contentType, tag = null) => {
       ) {
         searchRequest["fields.tags[in]"] = tag;
       }
-      const data = await client.getEntries(searchRequest);
-      const items = data.items;
+      //temp
+      const contentful_response = await fetch(
+        `/.netlify/functions/getPortfolioData?searchRequest=${JSON.stringify(
+          searchRequest
+        )}`
+      );
+      const data = await contentful_response.json();
+      if (data.error) {
+        throw new Error(`Error in fetching ${contentType}.`);
+      }
+      const items = data.data.items;
       const parsedItems = getParsedItems(contentType, items);
       response.items = parsedItems;
       response.loading = false;
     } catch (error) {
       response.error = error.message;
       response.loading = false;
+      throw error;
     }
   };
 

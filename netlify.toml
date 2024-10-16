@@ -1,0 +1,10 @@
+[build]
+	command = "# no command"
+	functions = "netlify/functions"
+	publish = "public"
+
+[functions]
+        node_bundler = "esbuild"
+
+[dev]
+  targetPort = 5173
