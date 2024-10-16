@@ -18,7 +18,7 @@ const Bookshelf = () => {
   }
 
   if (error) {
-    <Message message={"Error in loading bookshelf."} />;
+    return <Message message={"Error in loading bookshelf."} />;
   }
   return (
     <section className="projects">

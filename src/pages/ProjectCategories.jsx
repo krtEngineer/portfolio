@@ -23,7 +23,7 @@ const ProjectCategories = () => {
   }
 
   if (error) {
-    <Message message={"Error in loading project categories."} />;
+    return <Message message={"Error in loading project categories."} />;
   }
 
   return (

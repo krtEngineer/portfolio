@@ -19,12 +19,13 @@ export const loader = async ({ request }) => {
 const Blogs = () => {
   const { loading, error, blogs, contentType } = useLoaderData();
 
+  console.log(error);
   if (loading) {
     <Message message={"Loading..."} />;
   }
 
   if (error) {
-    <Message message={"Error in loading blogs."} />;
+    return <Message message={"Error in loading blogs."} />;
   }
 
   const [visibleBlogs, setVisibleBlogs] = useState(8);

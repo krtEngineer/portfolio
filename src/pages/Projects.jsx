@@ -18,7 +18,7 @@ const Projects = () => {
   }
 
   if (error) {
-    <Message message={"Error in loading projects."} />;
+    return <Message message={"Error in loading projects."} />;
   }
   return (
     <section className="projects">
