@@ -1,6 +1,5 @@
 import Blog from "../components/Blog";
 import { useLoaderData } from "react-router-dom";
-import Title from "../components/Description";
 import Message from "../components/Message";
 import { fetchItems } from "../services/fetchItems";
 import { useState } from "react";

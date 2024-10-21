@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import heroImg_2 from "../assets/hero_wbcg.png";
-import { GoDownload } from "react-icons/go";
 import { fetchItems } from "../services/fetchItems";
-import SocialLinks from "./SocialLinks";
 import GreetingSlider from "./GreetingSlider";
-import { socialLinksContentType } from "../services/utility";
-import Greeting from "./Greeting";
+import {
+  getDataWithExpiry,
+  saveDataWithExpiry,
+  socialLinksContentType,
+} from "../services/utility";
 import Contact from "./Contact";
 
 const Hero = () => {
   const [socialLinks, setSocialLinks] = useState([]);
   const getSocialLinks = async () => {
-    let socialLinks = localStorage.getItem("social_links");
+    let socialLinks = getDataWithExpiry("social_links");
     if (
       socialLinks === null ||
       socialLinks === undefined ||
@@ -21,7 +22,7 @@ const Hero = () => {
     ) {
       const { items } = await fetchItems(socialLinksContentType);
       socialLinks = JSON.stringify(items);
-      localStorage.setItem("social_links", socialLinks);
+      saveDataWithExpiry("social_links", socialLinks);
     }
     setSocialLinks(JSON.parse(socialLinks));
   };

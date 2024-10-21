@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import {
   getBlogs,
   getBookshelf,
+  getDataWithExpiry,
   getLocalStorageKey,
   getProjectCategories,
   getProjects,
@@ -14,13 +15,8 @@ import {
   isContentTypeSocialLinks,
   isContentTypeTils,
   isContentTypeValid,
+  saveDataWithExpiry,
 } from "../services/utility";
-
-const client = createClient({
-  accessToken: import.meta.env.VITE_ACCESS_TOKEN,
-  space: import.meta.env.VITE_SPACE_ID,
-  environment: "master",
-});
 
 export const fetchItems = async (contentType, tag = null) => {
   let response = {
@@ -81,12 +77,12 @@ export const fetchItems = async (contentType, tag = null) => {
       throw new Error("Invalid content type.");
     }
     let localKey = getLocalStorageKey(contentType, tag);
-    let items = localStorage.getItem(localKey);
+    let items = getDataWithExpiry(localKey);
     if (items) {
-      response.items = JSON.parse(items);
+      response.items = items;
     } else {
       await fetchResponse();
-      localStorage.setItem(localKey, JSON.stringify(response.items));
+      saveDataWithExpiry(localKey, response.items);
     }
     response.loading = false;
   } catch (error) {
