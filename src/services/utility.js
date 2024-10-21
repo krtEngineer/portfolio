@@ -1,4 +1,5 @@
 import { description } from "../constants/descriptions";
+import { localStorageExpiryTime } from "../constants/localStorageExpiry";
 
 export const portfolioContentType = import.meta.env.VITE_CT_PORTFOLIO;
 export const projectContentTypes = import.meta.env.VITE_CT_PROJECTS;
@@ -190,4 +191,31 @@ export const getLocalStorageKey = (contentType, tag) => {
   } else {
     return contentType;
   }
+};
+
+export const saveDataWithExpiry = (key, value) => {
+  const now = new Date();
+  const item = {
+    value: value,
+    expiry: now.getTime() + localStorageExpiryTime,
+  };
+  localStorage.setItem(key, JSON.stringify(item));
+};
+
+export const getDataWithExpiry = (key) => {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) {
+    return null;
+  }
+
+  const item = JSON.parse(itemStr);
+  const now = new Date();
+
+  // Compare the expiry time with the current time
+  if (now.getTime() > item.expiry) {
+    // If the item is expired, remove it from storage and return null
+    localStorage.removeItem(key);
+    return null;
+  }
+  return item.value;
 };
